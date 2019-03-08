@@ -4,7 +4,7 @@ Nuestro trabajo consiste en distribuir una cantidad x de alumnos en un mismo aul
 
 ## Integrantes del equipo
 
-Paula de Antonio Grondona, GITHUB:
+Paula de Antonio Grondona, GITHUB: pauladeantoniogrondona
 
 Maria Dolores de la Fuente Fernandez, GITHUB: mariadelafuentefernandez
 
