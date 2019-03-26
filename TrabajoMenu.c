@@ -2,9 +2,9 @@
 
 //DISTRIBUCION DE ALUMNOS EN UN EXAMEN: MENU OPCIONES.
 
-/* AUTORAS: Paula De Antonio Grondona							NºMATRICULA: 53907
-			Maria Dolores de la Fuente Fernandez							 53911
-			Inés Reviejo vaillo											  	 54170
+/* AUTORAS: Paula De Antonio Grondona							
+		Maria Dolores de la Fuente Fernandez							
+		Ines Reviejo vaillo
 */
 
 int main()
@@ -16,7 +16,7 @@ int main()
 	// Variables iniciar sesion
 	int matriculainicio;
 	char contrasenainicio[20];
-	// Variables recuperar contraseña
+	// Variables recuperar contraseÃ±a
 	char nombrecontrasena[20], apellidoscontrasena[50], correocontrasena[100];
 	
 	
@@ -54,7 +54,7 @@ int main()
 				fflush(stdin);
 				scanf("%s",telefono);
 				
-				printf("Correo electrónico: ");
+				printf("Correo electrÃ³nico: ");
 				fflush(stdin);
 				scanf("%s",correo);
 		
@@ -62,17 +62,17 @@ int main()
 				do
 				{
 					
-					printf("Contraseña: ");
+					printf("ContraseÃ±a: ");
 					fflush(stdin);
 					scanf("%s",contrasena);
 				
-					printf("Repetir contraseña: ");
+					printf("Repetir contraseÃ±a: ");
 					fflush(stdin);
 					scanf("%s",contrasena2);
 					
 					if (strcmp(contrasena,contrasena2)!=0)
 					{
-						printf("Las contraseñas no coinciden, intentelo de nuevo. \n");
+						printf("Las contraseÃ±as no coinciden, intentelo de nuevo. \n");
 					}
 					
 				}while(strcmp(contrasena,contrasena2)!=0);
@@ -99,13 +99,13 @@ int main()
 					}
 					
 					default:{
-						printf("Contraseña: ");
+						printf("ContraseÃ±a: ");
 						fflush(stdin);
 						scanf("%s",contrasenainicio);
 					
-						// El programa comprobaría si es un usuario registrado en el fichero, si es asi continuario sino daria error.
-						// En el caso de dar error el programa indicaria: "Usuario o contraseña incorrectos"
-						// En ese caso el programa volveria a pedir los datos, habria una opcion de "Olvide mi contraseña" en la que el programa pediria:
+						// El programa comprobarÃ­a si es un usuario registrado en el fichero, si es asi continuario sino daria error.
+						// En el caso de dar error el programa indicaria: "Usuario o contraseÃ±a incorrectos"
+						// En ese caso el programa volveria a pedir los datos, habria una opcion de "Olvide mi contraseÃ±a" en la que el programa pediria:
 						
 						/*
 						printf("Nombre: ");
@@ -115,11 +115,11 @@ int main()
 						printf("Apellidos: ");
 						fflush(stdin);
 						//gets();
-						printf("Correo electrónico: ");
+						printf("Correo electrÃ³nico: ");
 						fflush(stdin);
 						//scanf
 						
-						//Si se comprobase que el correo electronico coincidiese con ese nombre de usuario, se proporciona la contraseña, o deja entrar iniciar sesion.
+						//Si se comprobase que el correo electronico coincidiese con ese nombre de usuario, se proporciona la contraseÃ±a, o deja entrar iniciar sesion.
 						
 						*/
 						
