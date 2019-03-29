@@ -84,26 +84,22 @@ int main()
 			}
 				
 			case 'B':
-			case 'b':
-			{
-				printf("INICIAR SESION\n");
-				printf("Pulse 'M' si desea volver al menu principal. \n\n");
-				printf("Numero de matricula: ");
-				scanf("%i",&matriculainicio);
-				printf("\n");
-				switch (matriculainicio){
+			case 'b':{
+				printf("Inicio de sesion. Introduzca su numero de matricula (*Pulse m si desea volver al menu principal):\n");
+					scanf("%d", &matricula);
+				
+				switch (matricula){
 					case 'M':
 					case 'm':{
 						fflush(stdin);
 						printf("Volviendo a menu principal.\n");
 					break;
 					}
-					
 					default:{
 						printf("Contraseña: ");
 						fflush(stdin);
-						scanf("%s",contrasenainicio);
-					
+						scanf("%s", password);
+					}
 						// El programa comprobaría si es un usuario registrado en el fichero, si es asi continuario sino daria error.
 						// En el caso de dar error el programa indicaria: "Usuario o contraseña incorrectos"
 						// En ese caso el programa volveria a pedir los datos, habria una opcion de "Olvide mi contraseña" en la que el programa pediria:
@@ -123,13 +119,11 @@ int main()
 						//Si se comprobase que el correo electronico coincidiese con ese nombre de usuario, se proporciona la contraseña, o deja entrar iniciar sesion.
 						
 						*/
-						
-					 break;
 					}
-					
-				}
+						
+			break;
 			}
-			
+				
 			case 'C':
 			case 'c':{
 				printf("Saliendo del programa.\n");
