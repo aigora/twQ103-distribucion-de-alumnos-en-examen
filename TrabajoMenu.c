@@ -1,84 +1,85 @@
-#include<stdio.h>
-
-//DISTRIBUCION DE ALUMNOS EN UN EXAMEN: MENU OPCIONES.
-
-/* AUTORAS: Paula De Antonio Grondona							
-		Maria Dolores de la Fuente Fernandez							
-		Ines Reviejo vaillo
+/*DISTRIBUCION DE ALUMNOS EN UN EXAMEN.
+AUTORAS: Paula De Antonio Grondona							
+		 Maria Dolores de la Fuente Fernandez							
+		 Ines Reviejo vaillo
 */
+
+#include<stdio.h>
+#include<string.h>
+
+#define NUMEROALUMNOS 3 
+
+struct Registro{
+	int matricula;
+	char nombre[20];
+	char apellidos[50];
+	char correo[100];
+	int telefono;
+	char contrasena[20];
+	char contrasena2[20];
+};
 
 int main()
 {
-	// Variables registro
-	char opcion;	
-	int matricula;
-	char nombre[20], apellidos[50], telefono[10], correo[100], contrasena[20], contrasena2[20];
+	struct Registro registro_alumno[NUMEROALUMNOS];
+	
+	int i=0;
+	char opcion, opcion1;
 	// Variables iniciar sesion
-	int matriculainicio;
+	int matricula;
+	char password[20];
 	char contrasenainicio[20];
 	// Variables recuperar contraseña
 	char nombrecontrasena[20], apellidoscontrasena[50], correocontrasena[100];
 	
-	
-
-	do
-	{
+	do{
 		printf("MENU:\n");
 		printf("A. Registrarse.\n");
 		printf("B. Iniciar sesion.\n");
 		printf("C. Salir.\n");
 		
-		printf("Selecciona una opcion.\t");
+		printf("Selecciona una opcion: ");
 		fflush(stdin);
 		scanf("%c", &opcion);
 		fflush(stdin);
 		printf("\n");		
 			
-		switch(opcion)
-		{
+		switch(opcion){
 			case 'A':
-			case 'a':
-			{
+			case 'a':{
+				printf("Numero de registro %d\n", i+1); //Para contabilizar el numero de alumnos registrados y poder guardarlos: i.
+				
 				printf("Numero de matricula: ");
-				scanf("%i",&matricula);
-				
+				scanf("%d", &registro_alumno[i].matricula);
 				printf("Nombre: ");
-				fflush(stdin);
-				gets(nombre); // para nombres compuestos
-				
+					fflush(stdin);
+					gets(registro_alumno[i].nombre);
 				printf("Apellidos: ");
-				fflush(stdin);
-				gets(apellidos);
-				
+					gets(registro_alumno[i].apellidos);
+				printf("Correo electronico: ");
+					gets(registro_alumno[i].correo);
 				printf("Telefono de contacto: ");
+					scanf("%d", &registro_alumno[i].telefono);
+										
 				fflush(stdin);
-				scanf("%s",telefono);
-				
-				printf("Correo electrónico: ");
-				fflush(stdin);
-				scanf("%s",correo);
-		
-				
-				do
-				{
-					
-					printf("Contraseña: ");
+								
+				do{
+					printf("Contrasena: ");
 					fflush(stdin);
-					scanf("%s",contrasena);
+					scanf("%s", registro_alumno[i].contrasena);
 				
-					printf("Repetir contraseña: ");
+					printf("Repetir contrasena: ");
 					fflush(stdin);
-					scanf("%s",contrasena2);
+					scanf("%s",registro_alumno[i].contrasena2);
 					
-					if (strcmp(contrasena,contrasena2)!=0)
-					{
-						printf("Las contraseñas no coinciden, intentelo de nuevo. \n");
+					if (strcmp(registro_alumno[i].contrasena, registro_alumno[i].contrasena2)!=0){
+						printf("Las contrasenas no coinciden, intentelo de nuevo. \n");
 					}
-					
-				}while(strcmp(contrasena,contrasena2)!=0);
+				}while(strcmp(registro_alumno[i].contrasena, registro_alumno[i].contrasena2)!=0);
 				
 				printf("\nREGISTRO COMPLETADO\n\n");
 				
+				i++;
 			break;
 			}
 				
