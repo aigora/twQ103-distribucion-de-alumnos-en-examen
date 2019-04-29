@@ -29,10 +29,12 @@ int main()
 	FILE *puntero;
 	
 	// Variables iniciar sesion
-	int matricula[NUMEROALUMNOS];
-	char password[20];
+	int j;
+	int matricula_inicio;
+	int auxiliar_inicio;
+	char contrasena_inicio[20];
 	char contrasenainicio[20];
-	// Variables recuperar contraseña
+	// Variables recuperar contraseÃ±a
 	char nombrecontrasena[20], apellidoscontrasena[50], correocontrasena[100];
 	
 	//LEER FICHERO
@@ -50,7 +52,8 @@ int main()
 	
 
 	do{
-		printf("MENU:\n");
+		system("cls");
+		printf("***MENU***\n");
 		printf("A. Registrarse.\n");
 		printf("B. Iniciar sesion.\n");
 		printf("C. Salir.\n");
@@ -59,11 +62,16 @@ int main()
 		fflush(stdin);
 		scanf("%c", &opcion);
 		fflush(stdin);
-		printf("\n");		
+		printf("\n");	
+		
+		system("cls");
 			
 		switch(opcion){
 			case 'A':
 			case 'a':{
+				// Limpiar el compilador-> dejarlo bonito
+				//system("cls");
+				printf("***REGISTRO***\n\n");
 				printf("Numero de registro %d\n", nalumnos+1); //Para contabilizar el numero de alumnos registrados y poder guardarlos: nalumnos.
 				
 				printf("Numero de matricula: ");
@@ -133,66 +141,85 @@ int main()
 					registro_alumno[i].telefono,
 					registro_alumno[i].contrasena);
 				}
-				fclose(puntero);
-				//Cerramos el fichero
-				printf("\nREGISTRO COMPLETADO\n\n");
 				
-				// Limpiar el compilador-> dejarlo bonito
-				system("cls");
+				//Cerramos el fichero
+				fclose(puntero);
+				
+				printf("\nREGISTRO COMPLETADO\n\n");
 			break;
 			}
 				
 			case 'B':
 			case 'b':{
-				printf("Inicio de sesion.(*Pulse m si desea volver al menu principal):\n");
-				printf("Introduzca su numero de matricula\n");
-					scanf("%d", &matricula);
 				
-				switch (matricula){
-					case 'M':
-					case 'm':{
-						fflush(stdin);
-						printf("Volviendo a menu principal.\n");
-					break;
+				printf("***INICIAR SESION***\n(Pulse '0' si desea volver al menu principal)\n\n");
+				do{
+					auxiliar_inicio=0;
+					printf("Introduzca su numero de matricula: ");
+					fflush(stdin);
+					scanf("%d", &matricula_inicio);
+					
+					if (matricula_inicio == 0){
+						printf("\nVolviendo a menu principal...\n");
+						auxiliar_inicio = 1;
 					}
-					default:{
-						printf("Contraseña: ");
-						fflush(stdin);
-						scanf("%s", password);
-					}
-						// El programa comprobaría si es un usuario registrado en el fichero, si es asi continuario sino daria error.
-						// En el caso de dar error el programa indicaria: "Usuario o contraseña incorrectos"
-						// En ese caso el programa volveria a pedir los datos, habria una opcion de "Olvide mi contraseña" en la que el programa pediria:
-						
-						/*
-						printf("Nombre: ");
-						fflush(stdin);
-						//gets(); 
 				
-						printf("Apellidos: ");
+					else{
+						printf("\nContraseÃ±a: ");
 						fflush(stdin);
-						//gets();
-						printf("Correo electrónico: ");
+						scanf("%s", contrasena_inicio);
 						fflush(stdin);
-						//scanf
 						
-						//Si se comprobase que el correo electronico coincidiese con ese nombre de usuario, se proporciona la contraseña, o deja entrar iniciar sesion.
-						
-						*/
-					}
-						
+						for (j=0;j<nalumnos;j++)
+							{
+								
+								if (matricula_inicio == registro_alumno[j].matricula && (strcmp(contrasena_inicio, registro_alumno[j].contrasena) == 0) )
+								{
+									printf("\nBIENVENIDO %s %s\n\n", registro_alumno[j].nombre, registro_alumno[j].apellidos);
+									auxiliar_inicio = 2;
+									
+								}
+								else if(strcmp(contrasena_inicio, registro_alumno[j].correo) == 0)
+									{
+										printf("\n\nHola %s %s\n", registro_alumno[j].nombre, registro_alumno[j].apellidos);
+										printf("Su contraseÃ±a es: %s\n\n",registro_alumno[j].contrasena);
+										printf("Intentelo de nuevo: \n");
+										auxiliar_inicio=3;
+								}
+							}
+							
+						if (auxiliar_inicio!=2 && auxiliar_inicio!=3)
+							{
+								system("cls");
+								printf("\nUsuario o contraseÃ±a incorrectos. Intentelo de nuevo.\n\n");
+								printf("Â¿Ha olvidado su contrasena? Introduzca su correo electronico en lugar de la contraseÃ±a y se la enviaremos.\n");
+								printf("(Pulse '0' si desea volver al menu principal)\n\n");
+							}
+						}
+					
+					}while(auxiliar_inicio != 1 && auxiliar_inicio != 2);
+				
+					
+					
+				// Limpiar el compilador-> dejarlo bonito
+				//system("cls");
 			break;
 			}
 				
 			case 'C':
 			case 'c':{
-				printf("Saliendo del programa.\n");
+				// Limpiar el compilador-> dejarlo bonito
+				system("cls");
+				printf("Saliendo del programa...\n");
+				
 				break;
 			}
 			default:
 				printf("Opcion incorrecta.\n");
-			
-		}		
+				// Limpiar el compilador-> dejarlo bonito
+				system("cls");
+		}
+				
 			
 	}while(opcion!='D' && opcion!='d');
 
