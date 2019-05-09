@@ -13,6 +13,8 @@ AUTORAS: Paula De Antonio Grondona
 
 char menu(); //El return de la funcion es un char, y no es necesario ningun argumento
 char menuAsignaturas(); //Funcion para la eleccion de la asignatura en el momento del registro.
+int funcion_numeroButaca(int posicion_asignatura);
+char tableroAula(int nbutaca);
 
 struct Registro{
 	int matricula;
@@ -40,6 +42,7 @@ int main(){
 	char contrasena_inicio[20];
 	FILE *punteroexamen;
 	char caracter;
+	int butaca=0;
 	//LEER FICHERO
 	puntero= fopen("REGISTRO.txt","r");
 	while(fscanf(puntero,"%d\t%c\t%s\t%s\t%s\t%d\t%s\n",
@@ -163,30 +166,42 @@ int main(){
 									
 									switch(registro_alumno[j].asignatura){
 										case 'Q':{
-											punteroexamen=fopen("EXAMEN_QUIMICA.txt", "r");      
+											punteroexamen=fopen("EXAMEN_QUIMICA.txt", "r");   
+											butaca+=funcion_numeroButaca(-4);
+											   
 										break;}
 										
 										case 'F':{
 											punteroexamen=fopen("EXAMEN_FISICA.txt", "r"); 
+											butaca+=funcion_numeroButaca(-3);
 										break;}
 										
 										case 'I':{
-											punteroexamen=fopen("EXAMEN_INFORMATICA.txt", "r"); 
+											punteroexamen=fopen("EXAMEN_INFORMATICA.txt", "r");
+											butaca+=funcion_numeroButaca(-2); 
 										break;}
 										
 										case 'A':{
-											punteroexamen=fopen("EXAMEN_ALGEBRA.txt", "r"); 
+											punteroexamen=fopen("EXAMEN_ALGEBRA.txt", "r");
+											butaca+=funcion_numeroButaca(-1); 
 										break;}
 										
 										case 'E':{
-											punteroexamen=fopen("EXAMEN_ESTADISTICA.txt", "r");   
+											punteroexamen=fopen("EXAMEN_ESTADISTICA.txt", "r");  
+											butaca+=funcion_numeroButaca(0); 
 										break;}
 									}
 									while((caracter=fgetc(punteroexamen))!=EOF)
 											printf("%c", caracter); 
   											printf("\n\n\n"); 
   											fclose(punteroexamen);
+  									
 									system("PAUSE");
+									
+  									printf("Su butaca es la numero %d",butaca);
+  									//funcion matriz aula
+  									
+  									system("PAUSE");
 									
 							}else if(strcmp(contrasena_inicio, registro_alumno[j].correo) == 0){
 									printf("\nHola %s %s\n", registro_alumno[j].nombre, registro_alumno[j].apellidos);
@@ -259,3 +274,8 @@ char menuAsignaturas(){
 	
 	return asig;
 }
+
+int funcion_numeroButaca(int posicion_asignatura){
+	posicion_asignatura+=5;
+	return posicion_asignatura;
+}			
