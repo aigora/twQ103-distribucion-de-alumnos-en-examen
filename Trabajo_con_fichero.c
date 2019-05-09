@@ -4,15 +4,15 @@ AUTORAS: Paula De Antonio Grondona
 		 Ines Reviejo vaillo
 */
 
-#include<stdio.h>
-#include<string.h>
-#include<conio.h>
+#include <stdio.h>
+#include <string.h>
+#include <conio.h>
+#include <windows.h>
 
 #define NUMERO_ALUMNOS_MAX 100
 
 char menu(); //El return de la funcion es un char, y no es necesario ningun argumento
 char menuAsignaturas(); //Funcion para la eleccion de la asignatura en el momento del registro.
-//char comparacionContrasena(char contra, char contra1);
 
 struct Registro{
 	int matricula;
@@ -27,22 +27,19 @@ struct Registro{
 
 int main(){
 	system("color 71");
+	//Variables registro
 	struct Registro registro_alumno[NUMERO_ALUMNOS_MAX];
-	int nalumnos = 0; 
+	int nalumnos = 0;
 	int i;
 	char opcion;
 	FILE *puntero;
-	
 	// Variables iniciar sesion
 	int j;
 	int matricula_inicio;
 	int auxiliar_inicio;
 	char contrasena_inicio[20];
-	char contrasenainicio[20];
-	
-	// Variables recuperar contraseña
-	char nombrecontrasena[20], apellidoscontrasena[50], correocontrasena[100];
-	
+	FILE *punteroexamen;
+	char caracter;
 	//LEER FICHERO
 	puntero= fopen("REGISTRO.txt","r");
 	while(fscanf(puntero,"%d\t%c\t%s\t%s\t%s\t%d\t%s\n",
@@ -53,7 +50,8 @@ int main(){
 					registro_alumno[nalumnos].correo,
 					&registro_alumno[nalumnos].telefono,
 					registro_alumno[nalumnos].contrasena) != EOF)
-					
+					nalumnos++;
+								
 	fclose(puntero);
 	
 	do{
@@ -62,10 +60,15 @@ int main(){
 			case 'A':
 			case 'a':{
 				printf("\tREGISTRO\n\n");
+				printf("(Pulse '0' si desea volver al menu principal)\n\n");
 				printf("Numero de registro %d\n", nalumnos+1); //Para contabilizar el numero de alumnos registrados y poder guardarlos: nalumnos.
-				//HAY QUE ARREGLAR EL CONTADOR nalumnos PARA QUE CUANDO YA HAY ENTE REGISTRADA NO VUELVA A EMPEZAR EN 0.
 				printf("Numero de matricula: ");
 					scanf("%d", &registro_alumno[nalumnos].matricula);
+					if (registro_alumno[nalumnos].matricula == 0){
+						printf("\nVolviendo a menu principal...\n");
+						Sleep(2000);
+						break;
+						}
 				printf("Nombre: ");
 					fflush(stdin);
 					gets(registro_alumno[nalumnos].nombre);
@@ -89,18 +92,17 @@ int main(){
 					scanf("%s",registro_alumno[nalumnos].contrasena2);
 					
 					if (strcmp(registro_alumno[nalumnos].contrasena, registro_alumno[nalumnos].contrasena2)!=0){
-						printf("Las contrasenas no coinciden, intentelo de nuevo. \n");
-					}
-					//registro_alumno[nalumnos].contrasena= comparacionContrasena(registro_alumno[nalumnos].contrasena, registro_alumno[nalumnos].contrasena2);
+						printf("\nLas contrasenas no coinciden, intentelo de nuevo.\n\n");
+						Sleep(1500);}
+						
 				}while(strcmp(registro_alumno[nalumnos].contrasena, registro_alumno[nalumnos].contrasena2)!=0);
 				
-			
-				//MENU DE ASIGNATURAS CON FUNCION (terminado)
 				do{
-					registro_alumno[nalumnos].asignatura= menuAsignaturas(); 
-		
+					registro_alumno[nalumnos].asignatura= menuAsignaturas();
+					
 					if(registro_alumno[nalumnos].asignatura != 'Q' && registro_alumno[nalumnos].asignatura != 'F' &&registro_alumno[nalumnos].asignatura != 'I' &&registro_alumno[nalumnos].asignatura != 'A' &&registro_alumno[nalumnos].asignatura != 'E')
-						printf("Asignatura incorrecta. Intentelo de nuevo.\n");
+						printf("\nAsignatura incorrecta. Intentelo de nuevo.\n");
+						Sleep(1500);
 				}while(registro_alumno[nalumnos].asignatura != 'Q' && registro_alumno[nalumnos].asignatura != 'F' &&registro_alumno[nalumnos].asignatura != 'I' &&registro_alumno[nalumnos].asignatura != 'A' &&registro_alumno[nalumnos].asignatura != 'E');
 					
 				nalumnos++;
@@ -154,88 +156,42 @@ int main(){
 							if (matricula_inicio == registro_alumno[j].matricula && (strcmp(contrasena_inicio, registro_alumno[j].contrasena) == 0) ){
 									printf("Sesion iniciada correctamente. Bienvenido %s %s\n\n", registro_alumno[j].nombre, registro_alumno[j].apellidos);
 									auxiliar_inicio = 2;
-																	
+									
+									printf("\nEspere unos segundos, estamos imprimiendo su examen...\n");
+									Sleep(3000);
+									system("cls");
+									
 									switch(registro_alumno[j].asignatura){
 										case 'Q':{
-											printf("Te corresponde el examen de Quimica:\n\n");
-											
-											/*punteroexamen=fopen("EXAMEN_QUIMICA.txt", "r");      
-											while((caracter=fgetc(punteroexamen))!=EOF)
-											printf("%c", caracter); 
- 
-  											printf("\n"); 
- 
-  											fclose(punteroexamen);
-  											
-  											posicion(Q);*/
-										break;
-										}
+											punteroexamen=fopen("EXAMEN_QUIMICA.txt", "r");      
+										break;}
 										
 										case 'F':{
-											printf("Te corresponde el examen de Fisica:\n\n");
-											
-											/*punteroexamen=fopen("EXAMEN_FISICA.txt", "r");      
-											while((caracter=fgetc(punteroexamen))!=EOF)
-											printf("%c", caracter); 
- 
-  											printf("\n"); 
- 
-  											fclose(punteroexamen);
-  											
-  											posicion(F);*/
-										break;
-										}
+											punteroexamen=fopen("EXAMEN_FISICA.txt", "r"); 
+										break;}
 										
 										case 'I':{
-											printf("Te corresponde el examen de Informatica:\n\n");
-											
-											/*punteroexamen=fopen("EXAMEN_INFORMATICA.txt", "r");      
-											while((caracter=fgetc(punteroexamen))!=EOF)
-											printf("%c", caracter); 
- 
-  											printf("\n"); 
- 
-  											fclose(punteroexamen);
-  											
-  											posicion(I);*/
-										break;
-										}
+											punteroexamen=fopen("EXAMEN_INFORMATICA.txt", "r"); 
+										break;}
 										
 										case 'A':{
-											printf("Te corresponde el examen de Algebra:\n\n");
-											
-											/*punteroexamen=fopen("EXAMEN_ALGEBRA.txt", "r");      
-											while((caracter=fgetc(punteroexamen))!=EOF)
-											printf("%c", caracter); 
- 
-  											printf("\n"); 
- 
-  											fclose(punteroexamen);
-  											
-  											posicion(A);*/
-										break;
-										}
+											punteroexamen=fopen("EXAMEN_ALGEBRA.txt", "r"); 
+										break;}
 										
 										case 'E':{
-											printf("Te corresponde el examen de Estadistica:\n\n");
-											
-											/*punteroexamen=fopen("EXAMEN_ESTADISTICA.txt", "r");      
-											while((caracter=fgetc(punteroexamen))!=EOF)
-											printf("%c", caracter); 
- 
-  											printf("\n"); 
- 
-  											fclose(punteroexamen);
-  											posicion(E);*/
-										break;
-										}
+											punteroexamen=fopen("EXAMEN_ESTADISTICA.txt", "r");   
+										break;}
 									}
+									while((caracter=fgetc(punteroexamen))!=EOF)
+											printf("%c", caracter); 
+  											printf("\n\n\n"); 
+  											fclose(punteroexamen);
 									system("PAUSE");
 									
 							}else if(strcmp(contrasena_inicio, registro_alumno[j].correo) == 0){
 									printf("\nHola %s %s\n", registro_alumno[j].nombre, registro_alumno[j].apellidos);
 									printf("Su contrasena es: %s\n",registro_alumno[j].contrasena);
-									printf("Inicie sesion de nuevo: \n");
+									printf("\tInicie sesion de nuevo: \n");
 									auxiliar_inicio=3;
 							}
 						}
@@ -292,23 +248,14 @@ char menu(){
 char menuAsignaturas(){
 	char asig;
 	printf("\nAsignatura examen:\n");
-	printf("Quimica: Q\n");
-	printf("Fisica: F\n");
-	printf("Informatica: I\n");
-	printf("Algebra: A\n");
-	printf("Economia: E\n");
-	printf("\nSeleccione la asignatura de la que se va a examinar:");
+	printf("   -Quimica: Q\n");
+	printf("   -Fisica: F\n");
+	printf("   -Informatica: I\n");
+	printf("   -Algebra: A\n");
+	printf("   -Economia: E\n");
+	printf("\n\nSeleccione la asignatura de la que se va a examinar:");
 	fflush(stdin);
 	scanf("%c", &asig);
 	
 	return asig;
 }
-
-/*char comparacionContrasena(char contrasena, char contrasena2){
-	do{			
-		if (strcmp(contrasena, contrasena2)!=0){
-			printf("Las contrasenas no coinciden, intentelo de nuevo. \n");	
-	}while(strcmp(contrasena, contrasena2 !=0));
-
-	return contrasena;
-}*/
