@@ -1,0 +1,33 @@
+EXAMEN DE ALGEBRA      CURSO 2018/2019
+
+NOMBRE Y APELLIDOS:                        MATRICULA:
+
+Todas las cuestiones se responderan en un folio aparte etregado por el profesor.
+Dispondrá de 120 minutos. Suerte.
+
+EJERCICIO 1: (3 puntos)
+	Sea el endomorfismo f:R2[x]-->R2[x] tal que:
+
+		ker(f)={p(x)/p(1)=0=p(-1)}
+		Im(f)={p(x)/p(1)=0}
+		f(x+1)=1+ax,  a€R
+		f(x-x2)=-1+3x+bx2,  b€R
+
+	a) Hallense los valores reales de a y b.
+	b) Calculese la matriz A del endomorfismo f en la base {1,x,x2}.
+	c) Calculese una forma canonica de Jordan J y una matriz de paso P tal que A=PJP-1.
+
+EJERCICIO 2: (2 puntos)
+	Sea P la matriz proyeccion sobre un subespacio V de R3 tal que traza (P5)=2 y la proyeccion del vector (1,1,7) 
+	sobre dicho subespacio es el vector (1,-1,1). Hallese unas ecuaciones implicitas de V.
+
+EJERCICIO 3: (2 puntos)
+	a) Hallense los posibles valores positivos de "a" y "b" tal que la matriz (1 a) represente un producto escalar en R2.
+										  (B 2)
+	b) Hallese en función de "a" y "b" una base ortogonal que contenga a un vector proporcional al vector (1,1).
+
+EJERCICIO 4: (3 puntos)
+	Sean f:R2-->R3  y  g:R3-->R2  dos aplicaciones lineales tales que dim(ker(g)/\Im(f))=1. Calculense los posibles
+	valores del rango del endomorfismo g o f: R2-->R2.
+
+ 

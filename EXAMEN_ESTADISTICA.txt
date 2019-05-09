@@ -1,0 +1,30 @@
+EXAMEN DE ESTADISTICA             CURSO 2018/2019
+
+NOMBRE Y APELLIDOS:                                MATRICULA:
+
+Cada pregunta se responderá en hojas separadas entregadas por el profesor.
+La duracion de la prueba es de 2h.30 minutos. Suerte.
+
+EJERCICIO 1: (2 puntos)
+	Si A y B son dos sucesos independientes, demuestra que:
+			_         _
+		1. P(B/\A)=P(B)·P(A)
+                     ___     _    _
+		2. P(AUB)= P(A)·P(B)
+
+EJERCICIO 2: (3 puntos)
+	Se tiene una cierta cantidad de monedas normales y la misma cantidad de monedas cargadas. En estas ultimas,
+	la probabilidad de cara es 4 veces la probabilidad de cruz. Se elige al alzar una de las monedas, se lanza
+	10 veces y sale 10 veces cara. ¿Cual es la probabilidad de que la moneda elegida fuese cargada?
+
+EJERCICIO 3: (5 puntos)
+	Sea una V.A que expresa X:duracion(en meses) de un cierto tipo de bombilla. Si X tiene una funcion de densidad
+	de la forma:
+		f(x)= {	e^-x   si x>0
+		      {	 0     si x<=0
+	se pide:
+		a) Tipo de distribución de la V.A.X
+		b) Función de distribución de X
+		c) Media y varianza
+		d) Se montan focos con 10 bombillas de este tipo cada uno. El foco se considera aceptable si al cabo de
+		   3 meses, funcionan al menos 5 de las 10 bombillas. ¿Que probabilidad hay de que un foco sea aceptable?
