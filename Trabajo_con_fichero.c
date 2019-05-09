@@ -13,8 +13,8 @@ AUTORAS: Paula De Antonio Grondona
 
 char menu(); //El return de la funcion es un char, y no es necesario ningun argumento
 char menuAsignaturas(); //Funcion para la eleccion de la asignatura en el momento del registro.
-int funcion_numeroButaca(int posicion_asignatura);
-char tableroAula(int nbutaca);
+int funcion_numeroButaca(int posicion_asignatura);//Funcion para decir numero de butaca
+void tableroAula(int nbutaca);//Funcion para imprimir matriz, faltan cosas
 
 struct Registro{
 	int matricula;
@@ -197,8 +197,10 @@ int main(){
   											fclose(punteroexamen);
   									
 									system("PAUSE");
-									
-  									printf("Su butaca es la numero %d",butaca);
+									system("cls");
+  									printf("Su butaca es la numero %d\n\n",butaca);
+  									printf("Puede ver su posicion en el siguiente tablero:\n");
+  									tableroAula(butaca);
   									//funcion matriz aula
   									
   									system("PAUSE");
@@ -275,7 +277,30 @@ char menuAsignaturas(){
 	return asig;
 }
 
+//No funciona bien
 int funcion_numeroButaca(int posicion_asignatura){
 	posicion_asignatura+=5;
 	return posicion_asignatura;
 }			
+//Funciona bien pero como depende de la anterior lo hace mal										      
+void tableroAula(int nbutaca){
+	int aula[8][13];
+	int ii, jj, numero=1; 
+	for(ii = 0; ii < 8; ii++) { 
+		for(jj = 0; jj < 13; jj++){
+			aula[ii][jj]=numero;
+			numero++;}
+		}
+		
+	for(ii = 0; ii < 8; ii++) { 
+		for(jj = 0; jj < 13; jj++){
+		
+			if(nbutaca==aula[ii][jj])
+				printf("[%d]",nbutaca);
+			else	
+				printf("[ ]");  
+			}
+			printf("\n"); 
+		}
+}										
+	
