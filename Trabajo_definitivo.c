@@ -13,8 +13,7 @@ AUTORAS: Paula De Antonio Grondona
 
 char menu(); //El return de la funcion es un char, y no es necesario ningun argumento
 char menuAsignaturas(); //Funcion para la eleccion de la asignatura en el momento del registro.
-int funcion_numeroButaca(int posicion_asignatura);//Funcion para decir numero de butaca
-void tableroAula(int nbutaca);//Funcion para imprimir matriz, faltan cosas
+void tableroAula(int nbutaca);//Funcion para imprimir matriz
 
 struct Registro{
 	int matricula;
@@ -41,8 +40,9 @@ int main(){
 	int auxiliar_inicio;
 	char contrasena_inicio[20];
 	FILE *punteroexamen;
+	int butaca_Q=-4, butaca_F=-3, butaca_I=-2, butaca_A=-1, butaca_E=0;
 	char caracter;
-	int butaca=0;
+	
 	//LEER FICHERO
 	puntero= fopen("REGISTRO.txt","r");
 	while(fscanf(puntero,"%d\t%c\t%s\t%s\t%s\t%d\t%s\n",
@@ -62,35 +62,35 @@ int main(){
 		switch(opcion){
 			case 'A':
 			case 'a':{
-				printf("\tREGISTRO\n\n");
+				printf("\t\tREGISTRO\n\n");
 				printf("(Pulse '0' si desea volver al menu principal)\n\n");
-				printf("Numero de registro %d\n", nalumnos+1); //Para contabilizar el numero de alumnos registrados y poder guardarlos: nalumnos.
-				printf("Numero de matricula: ");
+				printf("\tNumero de registro %d\n", nalumnos+1); //Para contabilizar el numero de alumnos registrados y poder guardarlos: nalumnos.
+				printf("\tNumero de matricula: ");
 					scanf("%d", &registro_alumno[nalumnos].matricula);
 					if (registro_alumno[nalumnos].matricula == 0){
 						printf("\nVolviendo a menu principal...\n");
 						Sleep(2000);
 						break;
 						}
-				printf("Nombre: ");
+				printf("\tNombre: ");
 					fflush(stdin);
 					gets(registro_alumno[nalumnos].nombre);
-				printf("Apellidos: ");
+				printf("\tApellidos: ");
 					gets(registro_alumno[nalumnos].apellidos);
-				printf("Correo electronico: ");
+				printf("\tCorreo electronico: ");
 					gets(registro_alumno[nalumnos].correo);
-				printf("Telefono de contacto: ");
+				printf("\tTelefono de contacto: ");
 					scanf("%d", &registro_alumno[nalumnos].telefono);
 										
 				fflush(stdin);
 				
 				//COMPARACION DE CONTRASEÑA CON FUNCION (Sin terminar)!!			
 				do{
-					printf("Contrasena: ");
+					printf("\tContrasena: ");
 					fflush(stdin);
 					scanf("%s", registro_alumno[nalumnos].contrasena);
 				
-					printf("Repita la contrasena: ");
+					printf("\tRepita la contrasena: ");
 					fflush(stdin);
 					scanf("%s",registro_alumno[nalumnos].contrasena2);
 					
@@ -137,12 +137,12 @@ int main(){
 				
 			case 'B':
 			case 'b':{
-				printf("\tINICIAR SESION\n\n");
+				printf("\t\tINICIAR SESION\n\n");
 				printf("(Pulse '0' si desea volver al menu principal)\n\n");
 				
 				do{
 					auxiliar_inicio=0;
-					printf("Introduzca su numero de matricula: ");
+					printf("\tIntroduzca su numero de matricula: ");
 						fflush(stdin);
 						scanf("%d", &matricula_inicio);
 					
@@ -150,65 +150,70 @@ int main(){
 						printf("\nVolviendo a menu principal...\n");
 						auxiliar_inicio = 1;
 					}else{
-						printf("\nContrasena: ");
+						printf("\n\tContrasena: ");
 						fflush(stdin);
 						scanf("%s", contrasena_inicio);
 						fflush(stdin);
 						//Comparacion de numero de matriculas y contraseñas:
 						for (j=0;j<nalumnos;j++){
 							if (matricula_inicio == registro_alumno[j].matricula && (strcmp(contrasena_inicio, registro_alumno[j].contrasena) == 0) ){
-									printf("Sesion iniciada correctamente. Bienvenido %s %s\n\n", registro_alumno[j].nombre, registro_alumno[j].apellidos);
+									printf("\n\nSesion iniciada correctamente. Bienvenido %s %s\n\n", registro_alumno[j].nombre, registro_alumno[j].apellidos);
 									auxiliar_inicio = 2;
-									
-									printf("\nEspere unos segundos, estamos imprimiendo su examen...\n");
-									Sleep(3000);
+									system("PAUSE");
 									system("cls");
 									
 									switch(registro_alumno[j].asignatura){
 										case 'Q':{
 											punteroexamen=fopen("EXAMEN_QUIMICA.txt", "r");   
-											butaca+=funcion_numeroButaca(-4);
-											   
+											butaca_Q+=5;
+											tableroAula(butaca_Q);
+											printf("\nSu butaca es la numero: %d\n\n",butaca_Q);
 										break;}
 										
 										case 'F':{
 											punteroexamen=fopen("EXAMEN_FISICA.txt", "r"); 
-											butaca+=funcion_numeroButaca(-3);
+											butaca_F+=5;
+											tableroAula(butaca_F);
+											printf("\nSu butaca es la numero: %d\n\n",butaca_F);
 										break;}
 										
 										case 'I':{
 											punteroexamen=fopen("EXAMEN_INFORMATICA.txt", "r");
-											butaca+=funcion_numeroButaca(-2); 
+											butaca_I+=5; 
+											tableroAula(butaca_I);
+											printf("\nSu butaca es la numero: %d\n\n",butaca_I);
 										break;}
 										
 										case 'A':{
 											punteroexamen=fopen("EXAMEN_ALGEBRA.txt", "r");
-											butaca+=funcion_numeroButaca(-1); 
+											butaca_A+=5;
+											tableroAula(butaca_A);
+											printf("\nSu butaca es la numero: %d\n\n",butaca_A);
 										break;}
 										
 										case 'E':{
 											punteroexamen=fopen("EXAMEN_ESTADISTICA.txt", "r");  
-											butaca+=funcion_numeroButaca(0); 
+											butaca_E+=5;
+											tableroAula(butaca_E);
+											printf("\nSu butaca es la numero: %d\n\n",butaca_E);
 										break;}
 									}
+									system("PAUSE");
+									system("cls");
+  									printf("\nEspere unos segundos, estamos imprimiendo su examen...\n");
+									Sleep(3000);
+									system("cls");
 									while((caracter=fgetc(punteroexamen))!=EOF)
 											printf("%c", caracter); 
   											printf("\n\n\n"); 
   											fclose(punteroexamen);
-  									
-									system("PAUSE");
-									system("cls");
-  									printf("Su butaca es la numero %d\n\n",butaca);
-  									printf("Puede ver su posicion en el siguiente tablero:\n");
-  									tableroAula(butaca);
-  									//funcion matriz aula
-  									
+  						
   									system("PAUSE");
 									
 							}else if(strcmp(contrasena_inicio, registro_alumno[j].correo) == 0){
 									printf("\nHola %s %s\n", registro_alumno[j].nombre, registro_alumno[j].apellidos);
 									printf("Su contrasena es: %s\n",registro_alumno[j].contrasena);
-									printf("\tInicie sesion de nuevo: \n");
+									printf("\n\n\tInicie sesion de nuevo: \n");
 									auxiliar_inicio=3;
 							}
 						}
@@ -247,12 +252,12 @@ int main(){
 char menu(){
 	char opc;
 	system("cls");
-	printf("\tMENU\n");
-	printf("A. Registrarse.\n");
-	printf("B. Iniciar sesion.\n");
-	printf("C. Salir.\n");
+	printf("\t\tMENU\n\n");
+	printf("\tA. Registrarse.\n");
+	printf("\tB. Iniciar sesion.\n");
+	printf("\tC. Salir.\n");
 	
-	printf("Selecciona una opcion: ");
+	printf("\n\tSelecciona una opcion: ");
 	fflush(stdin);
 	scanf("%c", &opc);
 	printf("\n");	
@@ -264,43 +269,41 @@ char menu(){
 //Funcion 2: Eleccion de asignatura
 char menuAsignaturas(){
 	char asig;
-	printf("\nAsignatura examen:\n");
-	printf("   -Quimica: Q\n");
-	printf("   -Fisica: F\n");
-	printf("   -Informatica: I\n");
-	printf("   -Algebra: A\n");
-	printf("   -Economia: E\n");
-	printf("\n\nSeleccione la asignatura de la que se va a examinar:");
+	printf("\n\tAsignatura examen:\n");
+	printf("\t   -Quimica: Q\n");
+	printf("\t   -Fisica: F\n");
+	printf("\t   -Informatica: I\n");
+	printf("\t   -Algebra: A\n");
+	printf("\t   -Economia: E\n");
+	printf("\n\tSeleccione la asignatura de la que se va a examinar:");
 	fflush(stdin);
 	scanf("%c", &asig);
 	
 	return asig;
 }
-
-//No funciona bien
-int funcion_numeroButaca(int posicion_asignatura){
-	posicion_asignatura+=5;
-	return posicion_asignatura;
-}			
-//Funciona bien pero como depende de la anterior lo hace mal										      
-void tableroAula(int nbutaca){
-	int aula[8][13];
-	int ii, jj, numero=1; 
-	for(ii = 0; ii < 8; ii++) { 
-		for(jj = 0; jj < 13; jj++){
-			aula[ii][jj]=numero;
+										      
+void tableroAula(int butaca_asignatura){
+	int aula[16][26];
+	int i, j, numero=1; 
+	
+	printf("\n\n\t\t\t\t\t\tCOLOCACION EN EL AULA\n\n");
+	for(i= 0; i < 16; i++) { 
+		for(j = 0; j < 26; j++){
+			aula[i][j]=numero;
 			numero++;}
 		}
 		
-	for(ii = 0; ii < 8; ii++) { 
-		for(jj = 0; jj < 13; jj++){
+	for(i= 0; i < 16; i++) { 
+		printf("FILA %d:   ",i+1);
+		for(j = 0; j < 26; j++){
 		
-			if(nbutaca==aula[ii][jj])
-				printf("[%d]",nbutaca);
+			if(butaca_asignatura==aula[i][j])
+				printf("[%d] ",butaca_asignatura);
 			else	
-				printf("[ ]");  
+				printf("[ ] ");  
 			}
-			printf("\n"); 
+			printf("\n\n"); 
 		}
+	
 }										
 	
