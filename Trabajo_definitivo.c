@@ -24,6 +24,7 @@ struct Registro{
 	char contrasena[20];
 	char contrasena2[20];
 	char asignatura;
+	int posicion;
 };
 
 int main(){
@@ -33,6 +34,7 @@ int main(){
 	int nalumnos = 0;
 	int i;
 	char opcion;
+	int butaca_Q=-4, butaca_F=-3, butaca_I=-2, butaca_A=-1, butaca_E=0;
 	FILE *puntero;
 	// Variables iniciar sesion
 	int j;
@@ -40,12 +42,12 @@ int main(){
 	int auxiliar_inicio;
 	char contrasena_inicio[20];
 	FILE *punteroexamen;
-	int butaca_Q=-4, butaca_F=-3, butaca_I=-2, butaca_A=-1, butaca_E=0;
 	char caracter;
 	
 	//LEER FICHERO
 	puntero= fopen("REGISTRO.txt","r");
-	while(fscanf(puntero,"%d\t%c\t%s\t%s\t%s\t%d\t%s\n",
+	while(fscanf(puntero,"%d\t%d\t%c\t%s\t%s\t%s\t%d\t%s\n",
+					&registro_alumno[nalumnos].posicion,
 					&registro_alumno[nalumnos].matricula, 
 					&registro_alumno[nalumnos].asignatura, 
 					registro_alumno[nalumnos].nombre, 
@@ -83,8 +85,7 @@ int main(){
 					scanf("%d", &registro_alumno[nalumnos].telefono);
 										
 				fflush(stdin);
-				
-				//COMPARACION DE CONTRASEÑA CON FUNCION (Sin terminar)!!			
+							
 				do{
 					printf("\tContrasena: ");
 					fflush(stdin);
@@ -107,7 +108,33 @@ int main(){
 						printf("\nAsignatura incorrecta. Intentelo de nuevo.\n");
 						Sleep(1500);
 				}while(registro_alumno[nalumnos].asignatura != 'Q' && registro_alumno[nalumnos].asignatura != 'F' &&registro_alumno[nalumnos].asignatura != 'I' &&registro_alumno[nalumnos].asignatura != 'A' &&registro_alumno[nalumnos].asignatura != 'E');
-					
+				
+				switch (registro_alumno[nalumnos].asignatura){
+					case 'Q':{  
+						butaca_Q+=5;
+						registro_alumno[nalumnos].posicion=butaca_Q;
+					break;}
+										
+					case 'F':{
+						butaca_F+=5;
+						registro_alumno[nalumnos].posicion=butaca_F;
+					break;}
+										
+					case 'I':{
+						butaca_I+=5; 
+						registro_alumno[nalumnos].posicion=butaca_I;
+					break;}
+										
+					case 'A':{
+						butaca_A+=5;
+						registro_alumno[nalumnos].posicion=butaca_A;
+					break;}
+										
+					case 'E':{
+						butaca_E+=5;
+						registro_alumno[nalumnos].posicion=butaca_E;
+					break;}
+				}
 				nalumnos++;
 				
 				//Abrimos fichero REGISTRO para escribir los datos (los que ya habia y hemos leido + los nuevos)
@@ -119,7 +146,8 @@ int main(){
 				}
 				
 				for (i=0; i<nalumnos; i++){
-					fprintf(puntero,"%d\t%c\t%s\t%s\t%s\t%d\t%s\n", 
+					fprintf(puntero,"%d\t%d\t%c\t%s\t%s\t%s\t%d\t%s\n", 
+					registro_alumno[i].posicion,
 					registro_alumno[i].matricula, 
 					registro_alumno[i].asignatura, 
 					registro_alumno[i].nombre, 
@@ -139,7 +167,6 @@ int main(){
 			case 'b':{
 				printf("\t\tINICIAR SESION\n\n");
 				printf("(Pulse '0' si desea volver al menu principal)\n\n");
-				
 				do{
 					auxiliar_inicio=0;
 					printf("\tIntroduzca su numero de matricula: ");
@@ -161,48 +188,37 @@ int main(){
 									auxiliar_inicio = 2;
 									system("PAUSE");
 									system("cls");
-									
+									//Abre el fichero correspondiente al examen de la asignatura
 									switch(registro_alumno[j].asignatura){
 										case 'Q':{
-											punteroexamen=fopen("EXAMEN_QUIMICA.txt", "r");   
-											butaca_Q+=5;
-											tableroAula(butaca_Q);
-											printf("\nSu butaca es la numero: %d\n\n",butaca_Q);
+											punteroexamen=fopen("EXAMEN_QUIMICA.txt", "r");
 										break;}
 										
 										case 'F':{
-											punteroexamen=fopen("EXAMEN_FISICA.txt", "r"); 
-											butaca_F+=5;
-											tableroAula(butaca_F);
-											printf("\nSu butaca es la numero: %d\n\n",butaca_F);
+											punteroexamen=fopen("EXAMEN_FISICA.txt", "r");
 										break;}
 										
 										case 'I':{
 											punteroexamen=fopen("EXAMEN_INFORMATICA.txt", "r");
-											butaca_I+=5; 
-											tableroAula(butaca_I);
-											printf("\nSu butaca es la numero: %d\n\n",butaca_I);
 										break;}
 										
 										case 'A':{
 											punteroexamen=fopen("EXAMEN_ALGEBRA.txt", "r");
-											butaca_A+=5;
-											tableroAula(butaca_A);
-											printf("\nSu butaca es la numero: %d\n\n",butaca_A);
 										break;}
 										
 										case 'E':{
-											punteroexamen=fopen("EXAMEN_ESTADISTICA.txt", "r");  
-											butaca_E+=5;
-											tableroAula(butaca_E);
-											printf("\nSu butaca es la numero: %d\n\n",butaca_E);
+											punteroexamen=fopen("EXAMEN_ESTADISTICA.txt", "r");
 										break;}
 									}
+									//Funcion que imprime el aula con la posicion
+									tableroAula(registro_alumno[j].posicion);
+									printf("\nSu butaca es la numero: %d\n\n",registro_alumno[j].posicion);
 									system("PAUSE");
 									system("cls");
   									printf("\nEspere unos segundos, estamos imprimiendo su examen...\n");
 									Sleep(3000);
 									system("cls");
+									//Imprime el fichero del examen correspondiente
 									while((caracter=fgetc(punteroexamen))!=EOF)
 											printf("%c", caracter); 
   											printf("\n\n\n"); 
@@ -281,29 +297,29 @@ char menuAsignaturas(){
 	
 	return asig;
 }
-										      
+
+//Funcion 3: Imprimir matriz de colocación en el aula										      
 void tableroAula(int butaca_asignatura){
 	int aula[16][26];
-	int i, j, numero=1; 
+	int i, j, auxiliar_aula=1;
 	
 	printf("\n\n\t\t\t\t\t\tCOLOCACION EN EL AULA\n\n");
 	for(i= 0; i < 16; i++) { 
 		for(j = 0; j < 26; j++){
-			aula[i][j]=numero;
-			numero++;}
+			aula[i][j]=auxiliar_aula;
+			auxiliar_aula++;}
 		}
 		
 	for(i= 0; i < 16; i++) { 
 		printf("FILA %d:   ",i+1);
 		for(j = 0; j < 26; j++){
 		
-			if(butaca_asignatura==aula[i][j])
-				printf("[%d] ",butaca_asignatura);
-			else	
+			if(butaca_asignatura==aula[i][j]){
+				printf("[%d] ",butaca_asignatura);}
+			else
 				printf("[ ] ");  
 			}
 			printf("\n\n"); 
 		}
 	
-}										
-	
+}							
