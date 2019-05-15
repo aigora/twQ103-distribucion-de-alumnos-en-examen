@@ -4,41 +4,42 @@ EXAMEN DE FISICA                     CURSO 2018/2019
 
 NOMBRE Y APELLIDOS:                        MATRICULA:
 
-Cada pregunta se responderá en un folio aparte etregado por el profesor.
-Dispondrá de 150 minutos. Suerte.
+Cada pregunta se responderÃ¡ en un folio aparte etregado por el profesor.
+DispondrÃ¡ de 150 minutos. Suerte.
 
 EJERCICIO 1:
-Se sabe que cuando un paracaidista se lanza desde una aeronave y abre el paracaídas sufre una fuerza resistiva "F" que 
-depende de la densidad del aire "p", de la velocidad del cuerpo "v" y del área transversal del paracaídas "A". Se pide 
-calcular por analisis dimensional la expresión de la fuerza resistiva "F". (l'15 puntos)
+Se sabe que cuando un paracaidista se lanza desde una aeronave y abre el paracaidas sufre una fuerza resistiva "F" que 
+depende de la densidad del aire "p", de la velocidad del cuerpo "v" y del area transversal del paracaidas "A". Se pide 
+calcular por analisis dimensional la expresion de la fuerza resistiva "F". (l'15 puntos)
 
 Para calcular dicha fuerza resistiva ensayamos con un modelo construido a escala 1:10 en el mismo aire y observamos que 
 dicho modelo alcanza una velocidad de 3 m/s cuando la velocidad del prototipo vale 2,7 m/s; si la fuerza resistiva en el 
-modelo vale 10 N, calcular cuánto valdrá la fuerza resistiva en el prototipo. (0,6 puntos)
+modelo vale 10 N, calcular cuanto valdra la fuerza resistiva en el prototipo. (0,6 puntos)
 
 EJERCICIO 2:
-Un bloque de 450 g unido a un resofte de constante elástica k=100 N/m está inicialmente en reposo sobre una mesa 
+Un bloque de 450 g unido a un resorte de constante elastica k=100 N/m esta inicialmente en reposo sobre una mesa 
 horizontal sin rozamiento. Una bala de 50 g de masa y velocidad igual a 20 m/s golpea horizontalmente el bloque, de modo 
-que el conjunto bloque/bala se mueva unido tras la colisión. Se pide:
-	a) La longitud máxima que se comprime el resorte al detener al conjunto bloque-bala (0,8 puntos)
-	b) Período de las oscilaciones generadas y la ecuación del movimiento resultante una vez que se descompone el 
+que el conjunto bloque/bala se mueva unido tras la colision. Se pide:
+	a) La longitud maxima que se comprime el resorte al detener al conjunto bloque-bala (0,8 puntos)
+	b) Periodo de las oscilaciones generadas y la ecuacion del movimiento resultante una vez que se descompone el 
 	muelle (0,45 puntos)
-	c) La velocidad del conjunto cuando la deformacion del resorte sea la mitad de la máxima (0,5 puntos)
+	c) La velocidad del conjunto cuando la deformacion del resorte sea la mitad de la maxima (0,5 puntos)
 
 EJERCICIO 3:
 Una pelota hueca cuyo momento de inercia vale I = 2/3 mR2 tiene una masa m=450 g y se abandona sin velocidad inicial 
 sobre un plano inclinado 30 grados respecto a la horizontal y a una altura de 2m sobre el nivel del suelo. Sabiendo que 
 la pelota rueda sin deslizar, se pide hallar:
-	a) La aceleración de su centro y el tiempo que tarda en llegar a la base del plano (0,9 puntos)
-	b) Lafuerza de rozamiento con el plano (0'2 puntos)
-	c) La velocidad del centro de la pelota, y su energía cinética de traslación y de rotación cuando llega al punto 
+	a) La aceleracion de su centro y el tiempo que tarda en llegar a la base del plano (0,9 puntos)
+	b) La fuerza de rozamiento con el plano (0'2 puntos)
+	c) La velocidad del centro de la pelota, y su energia cinetica de traslacion y de rotacion cuando llega al punto 
 	medio del plano A (0,55 puntos)
-	d) Demostrar que se conserva la energía mecánica de la pelota calculando las energías mecánicas inicial y final 
+	d) Demostrar que se conserva la energia mecanica de la pelota calculando las energias mecanicas inicial y final 
 	de la pelota (0,35 puntos)
-
+
+
 TEORIA: (2'5 puntos)
-Desarrollar las siguientes preguntas teóricas de temas varios:
-	a) Deducir razonadamente las componentes intrínsecas del vector aceleración, explicando el significado físico de 
+Desarrollar las siguientes preguntas teoricas de temas varios:
+	a) Deducir razonadamente las componentes intrinsecas del vector aceleracion, explicando el significado fisico de 
 	dichas componentes.
-	b) Enunciar y demostrar el Teorema de la cantidad del movimiento así mismo enunciar y demostrar el Teorema de la 
-	conservación de la cantidad de movimiento.
+	b) Enunciar y demostrar el Teorema de la cantidad del movimiento asi mismo enunciar y demostrar el Teorema de la 
+	conservacion de la cantidad de movimiento.
