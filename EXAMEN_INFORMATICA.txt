@@ -1,0 +1,43 @@
+
+
+EXAMEN DE INFORMATICA                CURSO 2018/2019
+
+NOMBRE Y APELLIDOS:                        MATRICULA:
+
+
+EJERCICIO 1:
+
+Se desea gestionar las calificaciones de los alumnos de una asignatura. La información necesaria para la gestión es
+el número de matrícula del alumno, el nombre y la calificación.	
+La lista de alumnos que	se debe	definir	en el programa es la siguiente:
+
+	Alumno	1: 	Número matrícula 55343	
+			Nombre Javier Gonzalez
+			Nota = 7.5
+	Alumno	2:	número matrícula 55344	
+			Nombre Pedro Gomez
+			Nota = 4.5
+
+Se pide crear un programa que permita modificar	la calificación	de un alumno y que muestre el listado de los alumnos por 
+pantalla. Se solicitará al usuario el nombre del alumno, y si no lo encuentra en la lista se mostrará un mensaje como 
+“Alumno no encontrado”, y si lo encuentra se solicitará la calificación a modificar. En cualquier caso, se mostrará por	
+pantalla, el listado de	los alumnos existentes.
+Para ello, se van a utilizar las siguientes funciones:
+
+	void	modificarNota(struct alumno clase[], int dim, char nomAlum[50]);
+
+en la cual a partir del	nombre introducido por el usuario, solicitado en el programa principal, se modifica la nota del 
+alumno.	Si el alumno no	se encuentra en	esta clase, se mostrará	un mensaje informativo.
+
+	void	listarAlumno(struct alumno clase[], int	dim);
+
+la cual	muestra	la información grabada de los alumnos.
+La variable dim	indica el número de alumnos existentes en la asignatura.
+El programa sólo se ejecuta una	vez.
+Para los datos del alumno, la estructura a utilizar es:
+
+	struct alumno {
+		int matricula;
+		char nombre[50];
+		float nota;
+		};
