@@ -1,0 +1,49 @@
+
+
+EXAMEN DE QUIMICA                     CURSO 2018/2019
+
+NOMBRE Y APELLIDOS:                        MATRICULA:
+
+Cada ejercicio se respondera en su hoja, si necesita otra pidala al profesor
+de la sala. Dispondrá de 180 minutos. Suerte.
+
+EJERCICIO 1: (3 puntos)
+	Determinar el ph de la disolucion resultante en los siguientes casos:
+		a) 10ml de disolucion NaOH 0.1M + 20ml de disolucion de HCl 0.1N.
+		a) 10ml de disolucion NH4OH 4N + 10ml de disolucion de HCl 0.2N.
+		a) 10ml de disolucion HCl 0.2N + 20ml de disolucion de HCl 0.5N.
+	Datos: Kb(NH3)=1.8x10-5
+
+EJERCICIO 2: (2.5 puntos)
+	a) Diga que volumen de HCl comercial, d=1.19g/ml y 35.5% en masa de riqueza, sera necesario para preparar 200ml
+	de disolucion acuosa de HCl 0.5N.
+	b) Cuando reaccionan 30g de cinq con exceso de acido clorhidrico comercial anterior, indique que volumen de
+	hidrogeno se desprendera, medido en condiciones normales si el rendimiento de la reaccion es del 90%.
+	c) Determinar la concentracion en g/L de una disolucion acuosa de cloruro calcico totalmente disociada, que a 
+	15C es isotonica con otra disolucion formada con 1g de una sustancia no ionizable, de masa molecular 93, que se
+	disuelve hasta formar 60ml de disolucion acuosa, a la misma temperatura de 15C.
+
+	Masas atomicas: H=1, Cl=35.5, Zn=65.3, Ca=40
+
+EJERCICIO 3: (3 puntos)
+	Con los semielementos Ni(s)|Ni2+ (0.1M) y Co(s)|Co2+(0.06M) se construye una pila. Se pide:
+		a) Potenciales de reduccion y semirreaciones en cada electrodo, asi como, la reaccion global y la fem de
+		la pila. Comparar los resultados obtenidos con los que tendria la pila estandar.
+		b) Electrodo que se disuleve y electrodo que aumenta de masa.
+		c) Trabajo electrico suministrado por diche pila cuando han circulado dos moles de electrones por el
+		circuito.
+		d) Valor de AG0 y AG.
+		e) Molaridad de la disolucion mas concentrada de niquel en la pila de concentracion:
+		Ni(s)|Ni2+ (0.1M)||Ni2+(XM)|Ni(s) que presenta una fuerza electromotriz de 20.6mV.
+		f)Valor de la constante de equilibrio a 25C, de la reaccion: Co(s)+Ni2+ <---> Co2+ + Ni(s)
+
+
+	Datos: E0Ni2+/Ni =0.25V,  E0Co2+/Co =0.28V
+
+EJERCICIO 4: (1.5 puntos)
+	a) Definir las siguientes propiedades: energia de ionizacion, afinidad electronica, electronegatividad y radio
+	atomico.
+	b) Dados los siguientes elementos:
+		-Ca,Ba,Mg,Sr,Be
+		-Te,O,S,Se
+	Ordenar cada serie segun las propiedades periodicas anteriores. Justifique la respuesta.
