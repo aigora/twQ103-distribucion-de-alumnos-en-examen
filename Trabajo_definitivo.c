@@ -9,7 +9,7 @@ AUTORAS: Paula De Antonio Grondona
 #include <conio.h>
 #include <windows.h>
 
-#define NUMERO_ALUMNOS_MAX 100
+#define NUMERO_ALUMNOS_MAX 415
 
 char menu(); //El return de la funcion es un char, y no es necesario ningun argumento
 char menuAsignaturas(); //Funcion para la eleccion de la asignatura en el momento del registro.
